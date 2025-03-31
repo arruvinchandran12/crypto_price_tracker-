@@ -1,0 +1,14 @@
+import requests
+
+url = "https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum&vs_currencies=usd"
+
+try:
+    response = requests.get(url)
+    data = response.json()
+    
+    print("🔹 Live Crypto Prices 🔹")
+    print(f"Bitcoin: ${data['bitcoin']['usd']}")
+    print(f"Ethereum: ${data['ethereum']['usd']}")
+
+except Exception as e:
+    print("Error fetching data:", e)
